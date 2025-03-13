@@ -8,7 +8,6 @@ import ReactDev from "../../../public/frontend_developer_react certificate_page-
 import ReactB from "../../../public/react_basic certificate_page-0001.jpg";
 import JavaScript from "../../../public/javascript_intermediate certificate_page-0001.jpg";
 import Node from "../../../public/nodejs_basic certificate_page-0001.jpg";
-import { div } from "framer-motion/client";
 
 const logos = [
   {
