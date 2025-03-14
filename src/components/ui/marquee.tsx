@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useMemo } from "react";
 
 interface MarqueeProps {
   className?: string;
@@ -19,6 +20,26 @@ export default function Marquee({
   repeat = 4,
   ...props
 }: MarqueeProps) {
+  const items = useMemo(() => {
+    return Array(Math.max(1, repeat))
+      .fill(0)
+      .map((_, i) => (
+        <div
+          key={i}
+          className={cn(
+            "marquee-content flex shrink-0 justify-around [gap:var(--gap)]",
+            vertical
+              ? "animate-marquee-vertical flex-col"
+              : "animate-marquee flex-row",
+            reverse && "reverse",
+            pauseOnHover && "pause-on-hover" 
+          )}
+        >
+          {children}
+        </div>
+      ));
+  }, [repeat, pauseOnHover, reverse, vertical, children]);
+
   return (
     <div
       {...props}
@@ -28,25 +49,7 @@ export default function Marquee({
         className
       )}
     >
-      {Array(repeat)
-        .fill(0)
-        .map((_, i) => (
-          <div
-            key={i}
-            className={cn(
-              "flex shrink-0 justify-around [gap:var(--gap)]",
-              vertical
-                ? "animate-marquee-vertical flex-col"
-                : "animate-marquee flex-row",
-              {
-                "group-hover:[animation-play-state:paused]": pauseOnHover,
-                "[animation-direction:reverse]": reverse,
-              }
-            )}
-          >
-            {children}
-          </div>
-        ))}
+      {children ? items : <p className="text-center">No content available</p>}
     </div>
   );
 }

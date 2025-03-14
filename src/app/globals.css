@@ -67,13 +67,17 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 200px 130px #c026d3; /* outer cyan */
 }
+.pause-on-hover:hover {
+  animation-play-state: paused !important;
+}
 
+/* Ensure default animation for marquee */
 @keyframes marquee {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-100% - var(--gap)));
+    transform: translateX(-100%);
   }
 }
 
@@ -82,14 +86,19 @@ body {
     transform: translateY(0);
   }
   to {
-    transform: translateY(calc(-100% - var(--gap)));
+    transform: translateY(-100%);
   }
 }
 
 .animate-marquee {
-  animation: marquee var(--duration, 40s) linear infinite;
+  animation: marquee var(--duration) linear infinite;
 }
 
 .animate-marquee-vertical {
-  animation: marquee-vertical var(--duration, 40s) linear infinite;
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+/* Reverse animation */
+.reverse {
+  animation-direction: reverse;
 }
