@@ -1,5 +1,6 @@
 import React from "react";
 import { Sparkles } from "../../components/ui/sparkles";
+import { MoveDirection } from "@tsparticles/engine";
 import Image from "next/image";
 import Logo from "../../../public/LOGO.png"
 import { SiGithub, SiLinkedin, SiHackerrank } from "react-icons/si";
@@ -31,7 +32,7 @@ function index() {
           <Sparkles
             density={400}
             size={1.4}
-            direction="top"
+            direction={MoveDirection.top}
             className="absolute inset-x-0 top-0 h-full w-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
           />
         </div>

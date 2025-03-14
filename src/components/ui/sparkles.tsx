@@ -3,6 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { MoveDirection } from "@tsparticles/engine"; 
 
 interface SparklesProps {
   className?: string;
@@ -12,14 +13,14 @@ interface SparklesProps {
   speed?: number;
   minSpeed?: number | null;
   opacity?: number;
-  direction?: string;
+  direction?: MoveDirection; 
   opacitySpeed?: number;
   minOpacity?: number | null;
   color?: string;
   mousemove?: boolean;
   hover?: boolean;
   background?: string;
-  options?: Record<string, unknown>; // Adjust type as needed based on `options` structure
+  options?: Record<string, unknown>; 
 }
 
 export function Sparkles({
@@ -30,7 +31,7 @@ export function Sparkles({
   speed = 1.5,
   minSpeed = null,
   opacity = 1,
-  direction = "",
+  direction = MoveDirection.none, 
   opacitySpeed = 3,
   minOpacity = null,
   color = "#ffffff",
@@ -98,7 +99,7 @@ export function Sparkles({
       },
       move: {
         enable: true,
-        direction,
+        direction: direction, 
         speed: {
           min: minSpeed || speed / 130,
           max: speed,
@@ -148,6 +149,7 @@ export function Sparkles({
     },
     detectRetina: true,
   };
+
   const mergedOptions = { ...defaultOptions, ...options };
 
   return (
