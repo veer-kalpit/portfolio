@@ -7,11 +7,9 @@ export default function Navbar() {
 
   return (
     <nav className={cn(
-        'py-10 flex justify-between items-center animate-move-down'
+        'py-10 flex justify-between  animate-move-down self-center'
     )}>
         <Image src={Logo} alt="M"  width={300} height={300} />
-        <div className='flex items-center gap-5'>
-        </div>
     </nav>
   )
 }
