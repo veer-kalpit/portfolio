@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Big_Shoulders_Display } from "next/font/google";
+import Navbar from "./components/Navbar";
 import "./globals.css";
 
 const bigShoulders = Big_Shoulders_Display({
   subsets: ["latin"],
   variable: "--font-big-shoulders",
-  weight: ["400", "700"], 
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -18,7 +19,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${bigShoulders.variable} antialiased`}>{children}</body>
+      <body className={`${bigShoulders.variable} antialiased`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

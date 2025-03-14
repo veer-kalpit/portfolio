@@ -6,8 +6,8 @@ import AnimatedLetters from "../../components/ui/AnimatedLetters";
 
 export default function HeroSection() {
   return (
-    <div className="min-h-[60vh] flex flex-col gap-14 lg:gap-0 lg:flex-row items-center justify-between animate-move-up">
-      <div className="space-y-10 text-center lg:text-left">
+    <div className="min-h-[60vh] flex flex-col gap-14 lg:gap-0 lg:flex-row items-center justify-between ">
+      <div className="space-y-10 text-center lg:text-left ">
         <h1 className="text-4xl lg:text-7xl font-bold cursor-default">
           <AnimatedLetters text="Hi There! 👋" />
           <br />
@@ -26,7 +26,7 @@ export default function HeroSection() {
           <Title text="Contact Me 📭" className="text-white" />
         </Link>
       </div>
-      <div>
+      <div className="flex flex-col items-center justify-center">
         <Link
           href="https://drive.google.com/file/d/1RJMPBYqUvMQI5rnb3t9oWcftbvsLTtWl/view?usp=drive_link"
           target="_blank"
